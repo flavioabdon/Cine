@@ -6,7 +6,14 @@ class M_inicio_sesion extends CI_Model {
     }
 
     public function verifica_login($usuario, $contrasena){
-        $query = $this->db->query("SELECT * FROM fn_verificar_usuario('$usuario','$contrasena')");
-        return $query->result();
+        $this->db->where('NombreUsuario', $usuario);
+        $this->db->where('Contrasena', $contrasena);
+        $query = $this->db->get('Usuario');
+
+        if ($query->num_rows() > 0) {
+            echo "true"; // Usuario y contraseña coinciden
+        } else {
+            echo 'false'; // Usuario y/o contraseña incorrectos
+        }
     }
 }

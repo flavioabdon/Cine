@@ -1,1 +1,0 @@
-<h3>View inicial</h3>

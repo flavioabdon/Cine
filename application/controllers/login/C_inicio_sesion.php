@@ -17,7 +17,7 @@ class C_inicio_sesion extends CI_Controller {
 		$usuario_post=$this->input->post('input_usuario');
 		$contrasena_post=$this->input->post('input_contrasena');
 		$devolucion = $this->inicio_sesion_model->verifica_login($usuario_post, md5($contrasena_post));		
-		echo json_encode ($devolucion);
+		echo ($devolucion);
 	}
 	public function set_usuario (){
 		$usuario_post=$this->input->post('input_usuario');
