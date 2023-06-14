@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -241,7 +240,7 @@
       $session_data = $this->session->all_userdata();
 
       if (!isset($session_data['usuario_login'])) { //Si no encruentra en el array el objeto usuario_login redireccionar al login
-        redirect('/login', 'location');
+        redirect('/login/c_inicio_sesion', 'location');
       } else {
         echo $content_for_layout;
       }      
@@ -331,5 +330,3 @@
 </script>
 </body>
 </html>
-=======
->>>>>>> cine-develop

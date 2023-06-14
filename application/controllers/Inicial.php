@@ -23,7 +23,11 @@ class Inicial extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->layout->view('inicial/inicio');
-
+		// Este es el primer metodo que se carga
+		$this->load->view('cine/index.php');
+	}
+	public function bienvenido()
+	{
+		echo "<h1>Bienvenido Usuario logeado</h1>";
 	}
 }

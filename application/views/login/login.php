@@ -208,7 +208,7 @@
                     </button>				
                 </div>
                 <div class="social-login">
-                    <h3>Kanboard</h3>
+                    <h3>Login Cine M. C.</h3>
                     <div class="social-icons">
                         <a href="#" class="social-login__icon fab fa-instagram"></a>
                         <a href="#" class="social-login__icon fab fa-facebook"></a>
@@ -242,11 +242,9 @@
                         input_contrasena : contrasena_form 
                     },
                     success: function(respuesta) {
-                        var json = JSON.parse(respuesta);
-                        console.log(respuesta);
-                         $.each(json, function(i, item) {
-                            switch (item.omensaje) {
-                            case 'exitoso':
+                        console.log('Respuesta:'+respuesta);
+                            switch (respuesta) {
+                            case 'true':
                                 $.ajax({
                                     url: "<?php echo base_url('index.php/login/c_inicio_sesion/set_usuario'); ?>",
                                     type: "POST",
@@ -255,37 +253,27 @@
                                         input_usuario : usuario_form
                                     },
                                     success: function (rsp){
-                                        location.href ="<?php echo base_url(); ?>";
+                                        location.href ="<?php echo base_url(); ?>index.php/inicial/bienvenido";
                                     }
                                 });
                                 
                                 break;
-                            case 'usuario_no_registrado': 
+                            case 'false': 
                                 Swal.fire({
                                 position: 'top-star',
                                 icon: 'error',
-                                title: 'Usuario no registrado',
+                                title: 'Usuario o contraseña no coinciden',
                                 showConfirmButton: false,
                                 timer: 1500
                                 })
 
                                 // location.href ="<?php echo base_url('index.php/login/c_inicio_sesion/'); ?>";
                                 break;
-                            case 'equivocado': 
-                                Swal.fire({
-                                position: 'top-star',
-                                icon: 'error',
-                                title: 'Contraseña incorrecta',
-                                showConfirmButton: false,
-                                timer: 1500
-                                })
-                                // location.href ="<?php echo base_url('index.php/login/c_inicio_sesion/'); ?>";
-                                break; 
                             default:
                                 console.log("default");
                             }
 
-                         })
+                        
                     },
                     error: function(jqXHR, textStatus, errorThrown) {
                         alert('Error al obtener datos de ajax -no sirve');
