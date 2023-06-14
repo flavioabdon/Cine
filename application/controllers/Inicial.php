@@ -23,6 +23,7 @@ class Inicial extends CI_Controller {
 	 */
 	public function index()
 	{
+		// Este es el primer metodo que se carga
 		$this->load->view('cine/index.php');
 	}
 	public function bienvenido()
