@@ -1,5 +1,12 @@
+<!-- 
+	Inicio Sesion
+	Usuario:gerardo.mendoza
+	Contraseña:123456 
+-->
+
+
 <?php
-/* http://localhost/kanban/index.php/login/inicio_sesion */
+/* url llamar al controlador: http://localhost/cine/index.php/login/c_inicio_sesion */
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
